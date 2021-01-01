@@ -27,7 +27,7 @@ const Result = ({ results }) => {
       <div className={styles.resultFlex}>
         <div>{results.target - results.variant}</div>
         <div>{results.target}</div>
-        <div>{results.target + results.variant}</div>
+        <div>{parseInt(results.target) + parseInt(results.variant)}</div>
       </div>
       <h3 className={styles.result}>{results.label}</h3>
     </div>

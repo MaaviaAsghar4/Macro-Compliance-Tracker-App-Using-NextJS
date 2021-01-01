@@ -2,7 +2,7 @@ import { connectToDatabase } from "../../utils/mongodb";
 import { ObjectID } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
   const { db } = await connectToDatabase();
   const { method } = req;
 
@@ -18,7 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         protein: { label: "Protein", total: 0, target: 0, variant: 0 },
       };
 
-      let doc = {};
+      var doc = {};
       if (date) {
         doc = await db
           .collection("complianceTracker")
@@ -36,13 +36,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       let data = req.body;
       data = JSON.parse(data);
       data.date = new Date(data.date);
-      doc = await db
-        .collection("complianceTracker")
-        .updateOne(
-          { date: new Date(data.date) },
-          { $set: data },
-          { upsert: true }
-        );
+      doc = await db.collection("complianceTracker").updateOne(
+        { date: new Date(data.date) },
+        {
+          $set: data,
+        },
+        { upsert: true }
+      );
 
       res.json({ message: "ok" });
     default:

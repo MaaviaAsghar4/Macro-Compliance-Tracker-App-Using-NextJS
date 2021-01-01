@@ -5,6 +5,11 @@ import Result from "../components/Result";
 import dayjs from "dayjs";
 import Form from "../components/Form";
 
+const url =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://macro-compliance-tracker-app-using-next-js";
+
 export default function Home({ fetchedData }) {
   useEffect(() => {
     console.log(fetchedData);
@@ -23,10 +28,7 @@ export default function Home({ fetchedData }) {
   const getDataForPreviousDay = async () => {
     let currentDate = dayjs(results.date);
     let newDate = currentDate.subtract(1, "day").format("YYYY-MM-DDTHH:mm:ss");
-    const res = await fetch(
-      "https://macro-compliance-tracker-app-using-next-js/api/tracker?date=" +
-        newDate
-    );
+    const res = await fetch(`${url}/api/tracker?date=` + newDate);
     const json = await res.json();
 
     setResults(json);
@@ -35,23 +37,17 @@ export default function Home({ fetchedData }) {
   const getDataForNextDay = async () => {
     let currentDate = dayjs(results.date);
     let newDate = currentDate.add(1, "day").format("YYYY-MM-DDTHH:mm:ss");
-    const res = await fetch(
-      "https://macro-compliance-tracker-app-using-next-js/api/tracker?date=" +
-        newDate
-    );
+    const res = await fetch(`${url}/api/tracker?date=` + newDate);
     const json = await res.json();
 
     setResults(json);
   };
 
   const updateMacros = async () => {
-    const res = await fetch(
-      "https://macro-compliance-tracker-app-using-next-js/api/tracker",
-      {
-        method: "post",
-        body: JSON.stringify(results),
-      }
-    );
+    const res = await fetch(`${url}/api/tracker`, {
+      method: "post",
+      body: JSON.stringify(results),
+    });
 
     console.log(res);
   };
@@ -98,9 +94,7 @@ export default function Home({ fetchedData }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(
-    "https://macro-compliance-tracker-app-using-next-js/api/tracker"
-  );
+  const res = await fetch(`${url}/api/tracker`);
   const fetchedData = await res.json();
   return {
     props: {
