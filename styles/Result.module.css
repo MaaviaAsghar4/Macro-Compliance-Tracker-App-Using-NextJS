@@ -1,0 +1,32 @@
+.container {
+  margin-top: 20px;
+  background-color: #f7f7f7;
+  padding: 10px 10px;
+  box-shadow: 0 0 10px gray;
+  border-radius: 0.3rem;
+  width: 23%;
+}
+
+.heading {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.resultFlex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.resultFlex div {
+  width: 25%;
+}
+
+.result {
+  font-size: 1rem;
+  text-align: center;
+}
