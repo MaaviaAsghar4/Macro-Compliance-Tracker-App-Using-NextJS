@@ -24,7 +24,8 @@ export default function Home({ fetchedData }) {
     let currentDate = dayjs(results.date);
     let newDate = currentDate.subtract(1, "day").format("YYYY-MM-DDTHH:mm:ss");
     const res = await fetch(
-      "http://localhost:3000/api/tracker?date=" + newDate
+      "https://macro-compliance-tracker-app-using-next-js/api/tracker?date=" +
+        newDate
     );
     const json = await res.json();
 
@@ -35,7 +36,8 @@ export default function Home({ fetchedData }) {
     let currentDate = dayjs(results.date);
     let newDate = currentDate.add(1, "day").format("YYYY-MM-DDTHH:mm:ss");
     const res = await fetch(
-      "http://localhost:3000/api/tracker?date=" + newDate
+      "https://macro-compliance-tracker-app-using-next-js/api/tracker?date=" +
+        newDate
     );
     const json = await res.json();
 
@@ -43,10 +45,13 @@ export default function Home({ fetchedData }) {
   };
 
   const updateMacros = async () => {
-    const res = await fetch("http://localhost:3000/api/tracker", {
-      method: "post",
-      body: JSON.stringify(results),
-    });
+    const res = await fetch(
+      "https://macro-compliance-tracker-app-using-next-js/api/tracker",
+      {
+        method: "post",
+        body: JSON.stringify(results),
+      }
+    );
 
     console.log(res);
   };
@@ -93,7 +98,9 @@ export default function Home({ fetchedData }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/tracker");
+  const res = await fetch(
+    "https://macro-compliance-tracker-app-using-next-js/api/tracker"
+  );
   const fetchedData = await res.json();
   return {
     props: {
