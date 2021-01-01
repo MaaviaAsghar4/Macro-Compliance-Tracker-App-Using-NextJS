@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../styles/Form.module.css";
 
-const Form = () => {
+const Form = ({ item, onChange }) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Items</h2>
+      <h2 className={styles.heading}>{item}</h2>
       <div className={styles.formContainer}>
         <label className={styles.label} htmlFor={"Calories"}>
           Calories
@@ -12,8 +12,9 @@ const Form = () => {
         <input
           className={styles.input}
           type="number"
-          name={"Calories"}
-          id="Calories"
+          name={item + " Calories"}
+          id={item + " Calories"}
+          onChange={(e) => onChange(e)}
         />
       </div>
       <div className={styles.formContainer}>
@@ -23,15 +24,22 @@ const Form = () => {
         <input
           className={styles.input}
           type="number"
-          name={"Carbs"}
-          id="Carbs"
+          name={item + " Carbs"}
+          id={item + " Carbs"}
+          onChange={(e) => onChange(e)}
         />
       </div>
       <div className={styles.formContainer}>
         <label className={styles.label} htmlFor={"Fat"}>
           Fat
         </label>
-        <input className={styles.input} type="number" name={"Fat"} id="Fat" />
+        <input
+          className={styles.input}
+          type="number"
+          name={item + " Fat"}
+          id={item + " Fat"}
+          onChange={(e) => onChange(e)}
+        />
       </div>
       <div className={styles.formContainer}>
         <label className={styles.label} htmlFor={"Protein"}>
@@ -40,12 +48,10 @@ const Form = () => {
         <input
           className={styles.input}
           type="number"
-          name={"Protein"}
-          id="Protein"
+          name={item + " Protein"}
+          id={item + " Protein"}
+          onChange={(e) => onChange(e)}
         />
-      </div>
-      <div>
-        <button className={styles.btn}>Save</button>
       </div>
     </div>
   );

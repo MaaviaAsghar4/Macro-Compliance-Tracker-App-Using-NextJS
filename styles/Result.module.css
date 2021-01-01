@@ -1,10 +1,37 @@
 .container {
   margin-top: 20px;
+  padding: 10px 10px;
+  box-shadow: 0 0 10px gray;
   background-color: #f7f7f7;
+  border-radius: 0.3rem;
+  width: 23%;
+}
+
+.blue {
+  margin-top: 20px;
   padding: 10px 10px;
   box-shadow: 0 0 10px gray;
   border-radius: 0.3rem;
   width: 23%;
+  background-color: #4285f4;
+}
+
+.red {
+  margin-top: 20px;
+  padding: 10px 10px;
+  box-shadow: 0 0 10px gray;
+  border-radius: 0.3rem;
+  width: 23%;
+  background-color: #ea4335;
+}
+
+.green {
+  margin-top: 20px;
+  padding: 10px 10px;
+  box-shadow: 0 0 10px gray;
+  border-radius: 0.3rem;
+  width: 23%;
+  background-color: #34a853;
 }
 
 .heading {

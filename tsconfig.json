@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/api/tracker.js", "utils/mongodb.js"  ],
   "exclude": [
     "node_modules"
   ]

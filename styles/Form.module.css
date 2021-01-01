@@ -22,17 +22,3 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
-
-.btn {
-  padding: 10px 10px;
-  background-color: #4285f4;
-  color: #f7f7f7;
-  font-weight: bold;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.btn:focus {
-  outline: none;
-}
